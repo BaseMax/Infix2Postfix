@@ -7,16 +7,30 @@ It is a simple project that I made to show other students how they can easily de
 ## How to use
 
 1. Clone the repository
-2. Enter your infix expression in the example.js file
-2. Run `Infix2Postfix.js` and `example.js` in your terminal
-3. You will get the postfix expression
+2. Enter your infix expression in the `example.js` file
+2. Run `example.js` in your terminal
+3. You will get the postfix expression as output
 
 ## Example
 
-### Input
-
 ```js
-const infix = "a+b*c-d/e";
+convert_infix_to_postfix("5 + 6 * 7")
+// [ '5', '6', '7', '*', '+' ]
+convert_infix_to_postfix("(((a/b)-c) + (d*e))- (a*c)")
+// [
+//   'a', 'b', '/', 'c',
+//   '-', 'd', 'e', '*',
+//   '+', 'a', 'c', '*',
+//   '-'
+// ]
+convert_infix_to_postfix("(k+l)-(m*n)+(o^p)*w/v/u*t+q")
+// [
+//   'k', 'l', '+', 'm', 'n',
+//   '*', '-', 'o', 'p', '^',
+//   'w', '*', 'v', '/', 'u',
+//   '/', 't', '*', '+', 'q',
+//   '+'
+// ]
 ```
 
-© Copyright (c) 2019 Max Base
+© Copyright (c) 2022 Max Base
