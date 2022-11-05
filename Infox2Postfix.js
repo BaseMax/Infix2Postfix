@@ -6,13 +6,8 @@
  */
 
 const convert_infix_to_postfix = (infix) => {
-    // (, ), +, -, /, *, ^, %
-    // digits and identifier supports
-
-    let stack = [];
-    let postfix = [];
-
-    let operators = {
+    // Const Variables
+    const operators = {
         "^": 4,
         "*": 3,
         "/": 3,
@@ -23,30 +18,26 @@ const convert_infix_to_postfix = (infix) => {
         ")": 1
     };
 
+    // Variables
+    let stack = [];
+    let postfix = [];
+
+    // Functions
     let is_operator = (c) => c in operators;
-
     let is_digit = (c) => c >= '0' && c <= '9';
-
     let is_identifier = (c) => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-
     let is_space = (c) => c == ' ';
-
     let is_left_parenthesis = (c) => c == '(';
-
     let is_right_parenthesis = (c) => c == ')';
-
     let is_left_associative = (c) => c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
-
     let is_right_associative = (c) => c == '^';
-
     let is_associative = (c) => is_left_associative(c) || is_right_associative(c);
-
     let is_higher_precedence = (c1, c2) => {
         if (is_left_associative(c1) && operators[c1] == operators[c2]) return true;
         return operators[c1] > operators[c2];
     };
 
-    // convert infix to postfix
+    // Main Body
     for (let i = 0; i < infix.length; i++) {
         let c = infix[i];
         if (is_digit(c)) {
@@ -82,9 +73,7 @@ const convert_infix_to_postfix = (infix) => {
         }
     }
 
-    while (stack.length > 0) {
-        postfix.push(stack.pop());
-    }
+    while (stack.length > 0) postfix.push(stack.pop());
 
     return postfix;
 };
@@ -92,5 +81,3 @@ const convert_infix_to_postfix = (infix) => {
 // Example
 console.log(convert_infix_to_postfix("5 + 6 * 7"));
 console.log(convert_infix_to_postfix("(((a/b)-c) + (d*e))- (a*c)"));
-
-
