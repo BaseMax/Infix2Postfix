@@ -1,8 +1,8 @@
 /*
- * @Name: Infox2Postfix Evaluator JS
+ * @Name: Infix2Postfix Evaluator JS
  * @Author: Max Base
  * @Date: 2022-11-05
- * @Repository: https://githun.com/basemax/Infox2Postfix
+ * @Repository: https://githun.com/basemax/Infix2Postfix
  */
 
 const convert_infix_to_postfix = (infix) => {
@@ -23,16 +23,16 @@ const convert_infix_to_postfix = (infix) => {
     let postfix = [];
 
     // Functions
-    let is_operator = (c) => c in operators;
-    let is_digit = (c) => c >= '0' && c <= '9';
-    let is_identifier = (c) => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
-    let is_space = (c) => c == ' ';
-    let is_left_parenthesis = (c) => c == '(';
-    let is_right_parenthesis = (c) => c == ')';
-    let is_left_associative = (c) => c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
-    let is_right_associative = (c) => c == '^';
-    let is_associative = (c) => is_left_associative(c) || is_right_associative(c);
-    let is_higher_precedence = (c1, c2) => {
+    const is_operator = (c) => c in operators;
+    const is_digit = (c) => c >= '0' && c <= '9';
+    const is_identifier = (c) => (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+    const is_space = (c) => c == ' ';
+    const is_left_parenthesis = (c) => c == '(';
+    const is_right_parenthesis = (c) => c == ')';
+    const is_left_associative = (c) => c == '+' || c == '-' || c == '*' || c == '/' || c == '%';
+    const is_right_associative = (c) => c == '^';
+    const is_associative = (c) => is_left_associative(c) || is_right_associative(c);
+    const is_higher_precedence = (c1, c2) => {
         if (is_left_associative(c1) && operators[c1] == operators[c2]) return true;
         return operators[c1] > operators[c2];
     };
