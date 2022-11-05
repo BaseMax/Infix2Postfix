@@ -16,6 +16,7 @@ It is a simple project that I made to show other students how they can easily de
 ```js
 convert_infix_to_postfix("5 + 6 * 7")
 // [ '5', '6', '7', '*', '+' ]
+
 convert_infix_to_postfix("(((a/b)-c) + (d*e))- (a*c)")
 // [
 //   'a', 'b', '/', 'c',
@@ -23,6 +24,7 @@ convert_infix_to_postfix("(((a/b)-c) + (d*e))- (a*c)")
 //   '+', 'a', 'c', '*',
 //   '-'
 // ]
+
 convert_infix_to_postfix("(k+l)-(m*n)+(o^p)*w/v/u*t+q")
 // [
 //   'k', 'l', '+', 'm', 'n',
